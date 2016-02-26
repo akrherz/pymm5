@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+
+<META NAME="GENERATOR" CONTENT="pythondoc 0.7 (Fri Oct 27 12:13:09 2000)">
+
+<link rel="stylesheet" href="pythondoc.css" type="text/css">
+
+<title>Class mm5</title>
+</head>
+
+<body>
+<P><A HREF="index.html">Table of contents</A> <A HREF="indices.html">Index</A></P>
+
+
+<H1 CLASS="ClassName">class mm5 -  Main MM5 I/O format reader routines </H1>
+<P CLASS="DeclaredIn">Declared in module <A HREF="mm5_class.html">mm5_class</A></P>
+
+
+
+<H2>Synopsis</H2>
+<PRE CLASS="ClassDeclaration">
+<SPAN CLASS="PyKeyword">class</SPAN> <SPAN CLASS="ClassName">mm5</SPAN>:
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.__del__"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.__del__</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.del()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.__init__"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.__init__</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">filename</SPAN>)<SPAN CLASS="OneLiner"> #  a = mm5_class.mm5(filename)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_field_list"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_field_list</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_field_list()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_header"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_header</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_header()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_psdot"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_psdot</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_psdot()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_reftime"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_reftime</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_reftime()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_timeincrement"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_timeincrement</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_timeincrement()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.extract_vertcoord"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.extract_vertcoord</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.extract_vertcoord()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_field"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_field</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">fname</SPAN>, <SPAN CLASS="Argument">timestep</SPAN>)<SPAN CLASS="OneLiner"> #  field = a.get_field(fname, timestep)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_field_list"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_field_list</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  dict = get_field_list()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_header"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_header</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  head = a.get_header()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_program_id"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_program_id</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  pgid = a.get_program_id()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_reftime"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_reftime</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  rftime = a.get_reftime()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_timeincrement"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_timeincrement</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  timeinc = a.get_timeincrement()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_val"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_val</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">key</SPAN>)<SPAN CLASS="OneLiner"> #  val = a.get_val(key)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_version"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_version</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  vers = a.get_version()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.get_vertcoord"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.get_vertcoord</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  levels = a.get_vertcoord()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.print_field_list"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.print_field_list</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.print_field_list()</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_class.mm5.print_header"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_class.mm5.print_header</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> #  a.print_header()</SPAN>
+
+</PRE><H2 ID="mm5_class.mm5.__del__" CLASS="Method">mm5_class.mm5.__del__(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.del()</P>
+
+<P>
+Close a binary mm5 file
+    </P>
+<H2 ID="mm5_class.mm5.__init__" CLASS="Method">mm5_class.mm5.__init__(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">filename</SPAN>)</H2>
+<P> a = mm5_class.mm5(filename)</P>
+
+<P>
+Opens a binary MM5 file checking version
+    </P>
+<H2 ID="mm5_class.mm5.extract_field_list" CLASS="Method">mm5_class.mm5.extract_field_list(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_field_list()</P>
+
+<P>
+Extracts MM5 fields information storing them in a dictionary
+    </P>
+<H2 ID="mm5_class.mm5.extract_header" CLASS="Method">mm5_class.mm5.extract_header(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_header()</P>
+
+<P>
+Extracts MM5 header information storing them in a dictionary
+    </P>
+<H2 ID="mm5_class.mm5.extract_psdot" CLASS="Method">mm5_class.mm5.extract_psdot(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_psdot()</P>
+
+<P>
+For V2 and mm5 id 5 or 6, calculate pstar on dot point for decoupling
+    </P>
+<H2 ID="mm5_class.mm5.extract_reftime" CLASS="Method">mm5_class.mm5.extract_reftime(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_reftime()</P>
+
+<P>
+Extracts reference date from MM5 header
+    </P>
+<H2 ID="mm5_class.mm5.extract_timeincrement" CLASS="Method">mm5_class.mm5.extract_timeincrement(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_timeincrement()</P>
+
+<P>
+Extract time increment information from header
+    </P>
+<H2 ID="mm5_class.mm5.extract_vertcoord" CLASS="Method">mm5_class.mm5.extract_vertcoord(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.extract_vertcoord()</P>
+
+<P>
+Extracts vertical level informations
+    </P>
+<H2 ID="mm5_class.mm5.get_field" CLASS="Method">mm5_class.mm5.get_field(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">fname</SPAN>, <SPAN CLASS="Argument">timestep</SPAN>)</H2>
+<P> field = a.get_field(fname, timestep)</P>
+
+<P>
+Retrieves meteo field from MM5 file
+    </P>
+<H2 ID="mm5_class.mm5.get_field_list" CLASS="Method">mm5_class.mm5.get_field_list(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> dict = get_field_list()</P>
+
+<P>
+Returns MM5 field list for the file
+    </P>
+<H2 ID="mm5_class.mm5.get_header" CLASS="Method">mm5_class.mm5.get_header(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> head = a.get_header()</P>
+
+<P>
+Returns MM5 header information for the file
+    </P>
+<H2 ID="mm5_class.mm5.get_program_id" CLASS="Method">mm5_class.mm5.get_program_id(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> pgid = a.get_program_id()</P>
+
+<P>
+Return MM5 program id
+    </P>
+<H2 ID="mm5_class.mm5.get_reftime" CLASS="Method">mm5_class.mm5.get_reftime(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> rftime = a.get_reftime()</P>
+
+<P>
+Returns MM5 reference time for the file
+    </P>
+<H2 ID="mm5_class.mm5.get_timeincrement" CLASS="Method">mm5_class.mm5.get_timeincrement(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> timeinc = a.get_timeincrement()</P>
+
+<P>
+Returns MM5 time increment between timesteps for the file
+    </P>
+<H2 ID="mm5_class.mm5.get_val" CLASS="Method">mm5_class.mm5.get_val(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">key</SPAN>)</H2>
+<P> val = a.get_val(key)</P>
+
+<P>
+Retrieve mm5 header information
+See class mm5_table for key informations
+    </P>
+<H2 ID="mm5_class.mm5.get_version" CLASS="Method">mm5_class.mm5.get_version(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> vers = a.get_version()</P>
+
+<P>
+Return MM5 version number
+    </P>
+<H2 ID="mm5_class.mm5.get_vertcoord" CLASS="Method">mm5_class.mm5.get_vertcoord(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> levels = a.get_vertcoord()</P>
+
+<P>
+Returns vertical coordinate
+    </P>
+<H2 ID="mm5_class.mm5.print_field_list" CLASS="Method">mm5_class.mm5.print_field_list(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.print_field_list()</P>
+
+<P>
+Prints out MM5 field list informations
+    </P>
+<H2 ID="mm5_class.mm5.print_header" CLASS="Method">mm5_class.mm5.print_header(<SPAN CLASS="Argument">self</SPAN>)</H2>
+<P> a.print_header()</P>
+
+<P>
+Prints out MM5 header informations
+    </P>
+
+<HR>
+<TABLE ALIGN="LEFT">
+<TR><TD>
+  <A HREF="http://validator.w3.org/check/referer" TARGET="validate">
+    <IMG BORDER=0 SRC="http://validator.w3.org/images/vh40.gif"
+     ALT="Valid HTML 4.0!" HEIGHT=31 WIDTH=88></A>
+  <A HREF="http://www.w3.org/Style/CSS/Buttons">
+    <IMG ALT="Made with CSS" BORDER=0 WIDTH=88 HEIGHT=31 
+     SRC="http://www.w3.org/Style/CSS/Buttons/mwcos"></A>
+
+</TD>
+<TD STYLE="padding-left: 10">
+  <SPAN CLASS="AUTHOR"></SPAN><BR>
+  <SPAN CLASS="VERSION"></SPAN>
+</TD>
+</TABLE>
+
+</body>
+</html>

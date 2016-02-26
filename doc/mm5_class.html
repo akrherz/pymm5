@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+
+<META NAME="GENERATOR" CONTENT="pythondoc 0.7 (Fri Oct 27 12:13:09 2000)">
+
+<link rel="stylesheet" href="pythondoc.css" type="text/css">
+
+<title>Module mm5_class</title>
+</head>
+
+<body>
+<P><A HREF="index.html">Table of contents</A> <A HREF="indices.html">Index</A></P>
+
+
+<H1 CLASS="ModuleName">Module mm5_class</H1>
+<PRE><SPAN CLASS="ClassHead"><A CLASS="DocLink" HREF="mm5_class.mm5.html"><SPAN CLASS="PyKeyword">class</SPAN> <SPAN CLASS="ClassName">mm5</SPAN></A></SPAN><SPAN CLASS="OneLiner"> #  Main MM5 I/O format reader routines </SPAN>
+<SPAN CLASS="FunctionHead"><A CLASS="DocLink" HREF="#c2d"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">c2d</SPAN></A>(<SPAN CLASS="Argument">c</SPAN>)</SPAN><SPAN CLASS="OneLiner"> #  f2d = c2d(f2c)</SPAN>
+<SPAN CLASS="FunctionHead"><A CLASS="DocLink" HREF="#fortran_read"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">fortran_read</SPAN></A>(<SPAN CLASS="Argument">fp</SPAN>, <SPAN CLASS="Argument">nbyte</SPAN>)</SPAN><SPAN CLASS="OneLiner"> #  field = fortran_read(fp, nbyte)</SPAN>
+<SPAN CLASS="FunctionHead"><A CLASS="DocLink" HREF="#inctime"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">inctime</SPAN></A>(<SPAN CLASS="Argument">adate</SPAN>, <SPAN CLASS="Argument">xsec</SPAN>)</SPAN><SPAN CLASS="OneLiner"> #  ndate =  inctime(adate, xsec)</SPAN>
+<SPAN CLASS="FunctionHead"><A CLASS="DocLink" HREF="#integer_big_read"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">integer_big_read</SPAN></A>(<SPAN CLASS="Argument">fp</SPAN>)</SPAN><SPAN CLASS="OneLiner"> #  i = integer_big_read(fp)</SPAN>
+<SPAN CLASS="FunctionHead"><A CLASS="DocLink" HREF="#pdate"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">pdate</SPAN></A>(<SPAN CLASS="Argument">adate</SPAN>)</SPAN><SPAN CLASS="OneLiner"> #  fdate = pdate(adate)</SPAN>
+<SPAN CLASS="VariableHead"><SPAN CLASS="VariableType">string</SPAN> <SPAN CLASS="VariableName">__file__</SPAN> = <SPAN CLASS="VariableValue">'/utenti/giuliani/python_mm5/lib/MM5/mm5_class.pyc'</SPAN></SPAN>
+<SPAN CLASS="VariableHead"><SPAN CLASS="VariableType">string</SPAN> <SPAN CLASS="VariableName">__path__</SPAN> = <SPAN CLASS="VariableValue">''</SPAN></SPAN>
+</PRE><H2 ID="c2d" CLASS="Function">c2d(<SPAN CLASS="Argument">c</SPAN>)</H2>
+<P> f2d = c2d(f2c)</P>
+
+<P>
+Cross point to dot point interpolation
+  </P>
+<H2 ID="fortran_read" CLASS="Function">fortran_read(<SPAN CLASS="Argument">fp</SPAN>, <SPAN CLASS="Argument">nbyte</SPAN>)</H2>
+<P> field = fortran_read(fp, nbyte)</P>
+
+<P>
+Reads nbyte from a fortran unformatted file (big endian)
+  </P>
+<H2 ID="inctime" CLASS="Function">inctime(<SPAN CLASS="Argument">adate</SPAN>, <SPAN CLASS="Argument">xsec</SPAN>)</H2>
+<P> ndate =  inctime(adate, xsec)</P>
+
+<P>
+Increments a reference date of xsec seconds
+  </P>
+<H2 ID="integer_big_read" CLASS="Function">integer_big_read(<SPAN CLASS="Argument">fp</SPAN>)</H2>
+<P> i = integer_big_read(fp)</P>
+
+<P>
+Reads an integer value from a big_endian file
+  </P>
+<H2 ID="pdate" CLASS="Function">pdate(<SPAN CLASS="Argument">adate</SPAN>)</H2>
+<P> fdate = pdate(adate)</P>
+
+<P>
+Formats a date string
+  </P>
+
+<HR>
+<TABLE ALIGN="LEFT">
+<TR><TD>
+  <A HREF="http://validator.w3.org/check/referer" TARGET="validate">
+    <IMG BORDER=0 SRC="http://validator.w3.org/images/vh40.gif"
+     ALT="Valid HTML 4.0!" HEIGHT=31 WIDTH=88></A>
+  <A HREF="http://www.w3.org/Style/CSS/Buttons">
+    <IMG ALT="Made with CSS" BORDER=0 WIDTH=88 HEIGHT=31 
+     SRC="http://www.w3.org/Style/CSS/Buttons/mwcos"></A>
+
+</TD>
+<TD STYLE="padding-left: 10">
+  <SPAN CLASS="AUTHOR"></SPAN><BR>
+  <SPAN CLASS="VERSION"></SPAN>
+</TD>
+</TABLE>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+
+##############################################################
+#################  University of L'Aquila    #################
+#################       PST ABruzzo          #################
+################# MM5 python interface V 0.1 #################
+##############################################################
+
+import sys
+import string
+import mm5_class
+import wstations
+
+def print_help(prgname):
+  print " "
+  print "Program extracts precipitation data at given lat, lon in station_file"
+  print " "
+  print "Error. Usage:"
+  print "             ", prgname, " filename timestep station_file"
+  print " "
+  print "Notes:"
+  print "       First timestep is 0."
+  print "       station_file has sintax by lines. "
+  print "       each line contains 'staz_code lat lon height'"
+  print "       separated by blank characters or tabs"
+  print "       Lines beginning with '#' are comments"
+  print "       An example file can be found on /disk1/utenti/giuliani/python_mm5/pillo/etc/Station.txt"
+  print " "
+  sys.exit()
+
+if (len(sys.argv) < 4):
+  print_help(sys.argv[0])
+
+try:
+  f = open(sys.argv[3])
+except RuntimeError, e:
+  print e
+  sys.exit()
+
+statlist = f.readlines()
+f.close()
+
+lat = []
+lon = []
+stzcode = []
+for i in xrange(len(statlist)):
+  if (statlist[i][0] == '#'):
+    continue
+  valc = string.split(statlist[i])
+  try:
+    xstz = valc[0]
+    xlat = string.atof(valc[1])
+    xlon = string.atof(valc[2])
+  except:
+    continue
+  lat.append(xlat)
+  lon.append(xlon)
+  stzcode.append(xstz)
+
+try:
+  input = mm5_class.mm5(sys.argv[1])
+except RuntimeError, e:
+  print e
+  sys.exit()
+
+timestep = string.atoi(sys.argv[2])
+
+result = wstations.write(input, timestep, stzcode, lat, lon)
+if (result == -1):
+  print "Output routine failed"
+  sys.exit()
+
+del input
+
+sys.exit()

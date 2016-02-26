@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+
+<META NAME="GENERATOR" CONTENT="pythondoc 0.7 (Fri Oct 27 12:13:09 2000)">
+
+<link rel="stylesheet" href="pythondoc.css" type="text/css">
+
+<title>Class projection</title>
+</head>
+
+<body>
+<P><A HREF="index.html">Table of contents</A> <A HREF="indices.html">Index</A></P>
+
+
+<H1 CLASS="ClassName">class projection -  MM5 (Terrain) Projection routines </H1>
+<P CLASS="DeclaredIn">Declared in module <A HREF="mm5_proj.html">mm5_proj</A></P>
+
+
+
+<H2>Synopsis</H2>
+<PRE CLASS="ClassDeclaration">
+<SPAN CLASS="PyKeyword">class</SPAN> <SPAN CLASS="ClassName">projection</SPAN>:
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.__init__"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.__init__</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">input</SPAN>)<SPAN CLASS="OneLiner"> #  proj = projection(mm5_input)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.blinval"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.blinval</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)<SPAN CLASS="OneLiner"> #  a.blinval(lat,lon,grid,offset)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.cubconval"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.cubconval</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)<SPAN CLASS="OneLiner"> #  a.cubconval(lat,lon,grid,offset)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.ij_to_latlon"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.ij_to_latlon</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">i</SPAN>, <SPAN CLASS="Argument">j</SPAN>)<SPAN CLASS="OneLiner"> #  (lat,lon) = proj.ij_to_latlon(i,j)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.latlon_to_ij"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.latlon_to_ij</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>)<SPAN CLASS="OneLiner"> #  (i,j) = proj.latlon_to_ij(lat,lon)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.lwval"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.lwval</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)<SPAN CLASS="OneLiner"> #  a.lwval(lat,lon,grid,offset)</SPAN>
+    <A CLASS="DocLink" HREF="#mm5_proj.projection.nearval"><SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.nearval</SPAN></A>(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)<SPAN CLASS="OneLiner"> #  a.nearval(lat,lon,grid,offset)</SPAN>
+    <SPAN CLASS="PyKeyword">def</SPAN> <SPAN CLASS="FunctionName">mm5_proj.projection.set_proj</SPAN>(<SPAN CLASS="Argument">self</SPAN>)<SPAN CLASS="OneLiner"> # INTERNAL USE. NO INTERFACE.</SPAN>
+
+</PRE><H2 ID="mm5_proj.projection.__init__" CLASS="Method">mm5_proj.projection.__init__(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">input</SPAN>)</H2>
+<P> proj = projection(mm5_input)</P>
+
+<P>
+Create a projection instance. Input is an mm5 class instance.
+    </P>
+<H2 ID="mm5_proj.projection.blinval" CLASS="Method">mm5_proj.projection.blinval(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)</H2>
+<P> a.blinval(lat,lon,grid,offset)</P>
+
+<P>
+Bilinear interpolation of grid at lat,lon point</P>
+<P>
+Offset is 1.0 for cross variables, 0.5 for dot ones</P>
+<P>
+Advantages:    Stair-step effect caused by the nearest neighbour approach
+               is reduced. Image looks smooth.</P>
+<P>
+Disadvantages: Alters original data and reduces contrast and high
+               frequency component of the image by averaging neighbouring
+               values together. Is computationally more expensive than
+               nearest neighbour. 
+    </P>
+<H2 ID="mm5_proj.projection.cubconval" CLASS="Method">mm5_proj.projection.cubconval(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)</H2>
+<P> a.cubconval(lat,lon,grid,offset)</P>
+
+<P>
+Cubic convolution of grid at lat,lon point</P>
+<P>
+Offset is 1.0 for cross variables, 0.5 for dot ones</P>
+<P>
+Advantages:    Stair-step effect caused by the nearest neighbour approach
+               is reduced. Image looks smooth. </P>
+<P>
+Disadvantages: Alters original data and reduces contrast by averaging
+               neighbouring values together. Is computationally more
+               expensive than nearest neighbour or bilinear interpolation. 
+    </P>
+<H2 ID="mm5_proj.projection.ij_to_latlon" CLASS="Method">mm5_proj.projection.ij_to_latlon(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">i</SPAN>, <SPAN CLASS="Argument">j</SPAN>)</H2>
+<P> (lat,lon) = proj.ij_to_latlon(i,j)</P>
+
+<P>
+From i,j of the mm5 domain grid to latitude/longitude
+    </P>
+<H2 ID="mm5_proj.projection.latlon_to_ij" CLASS="Method">mm5_proj.projection.latlon_to_ij(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>)</H2>
+<P> (i,j) = proj.latlon_to_ij(lat,lon)</P>
+
+<P>
+From latitude/longitude to i,j of the mm5 domain grid
+    </P>
+<H2 ID="mm5_proj.projection.lwval" CLASS="Method">mm5_proj.projection.lwval(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)</H2>
+<P> a.lwval(lat,lon,grid,offset)</P>
+
+<P>
+Liner interpolation distance weighted of grid at lat,lon point</P>
+<P>
+Offset is 1.0 for cross variables, 0.5 for dot ones
+    </P>
+<H2 ID="mm5_proj.projection.nearval" CLASS="Method">mm5_proj.projection.nearval(<SPAN CLASS="Argument">self</SPAN>, <SPAN CLASS="Argument">lat</SPAN>, <SPAN CLASS="Argument">lon</SPAN>, <SPAN CLASS="Argument">grid</SPAN>, <SPAN CLASS="Argument">offset</SPAN>)</H2>
+<P> a.nearval(lat,lon,grid,offset)</P>
+
+<P>
+Nearest value interpolation of grid at lat,lon point
+Offset is 1.0 for cross variables, 0.5 for dot ones</P>
+<P>
+Advantages:    Output values are the original input values. Other methods
+               of resampling tend to average surrounding values.
+               Easy to compute and therefore fastest to use.</P>
+<P>
+Disadvantages: Produces a choppy, "stair-stepped" effect. The image has
+               a rough appearance relative to the original unrectified
+               data. Data values may be lost, while other values may be
+               duplicated.
+    </P>
+
+<HR>
+<TABLE ALIGN="LEFT">
+<TR><TD>
+  <A HREF="http://validator.w3.org/check/referer" TARGET="validate">
+    <IMG BORDER=0 SRC="http://validator.w3.org/images/vh40.gif"
+     ALT="Valid HTML 4.0!" HEIGHT=31 WIDTH=88></A>
+  <A HREF="http://www.w3.org/Style/CSS/Buttons">
+    <IMG ALT="Made with CSS" BORDER=0 WIDTH=88 HEIGHT=31 
+     SRC="http://www.w3.org/Style/CSS/Buttons/mwcos"></A>
+
+</TD>
+<TD STYLE="padding-left: 10">
+  <SPAN CLASS="AUTHOR"></SPAN><BR>
+  <SPAN CLASS="VERSION"></SPAN>
+</TD>
+</TABLE>
+
+</body>
+</html>

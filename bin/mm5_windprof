@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+##############################################################
+#################  University of L'Aquila    #################
+#################       PST ABruzzo          #################
+################# MM5 python interface V 0.1 #################
+##############################################################
+
+import sys
+import string
+import mm5_class
+import wprofile
+
+def print_help(prgname):
+  print " "
+  print "Program extracts vertical wind soundings at given lat, lon"
+  print " "
+  print "Error. Usage:"
+  print "             ", prgname, " filename timestep latitude longitude"
+  print " "
+  print "Notes:"
+  print "       First timestep is 0."
+  print " "
+  sys.exit()
+
+if (len(sys.argv) < 5):
+  print_help(sys.argv[0])
+
+try:
+  input = mm5_class.mm5(sys.argv[1])
+except RuntimeError, e:
+  print e
+  sys.exit()
+
+timestep = string.atoi(sys.argv[2])
+lat = string.atof(sys.argv[3])
+lon = string.atof(sys.argv[4])
+
+result = wprofile.write(input, timestep, lat, lon)
+if (result == -1):
+  print "Output routine failed"
+  sys.exit()
+
+del input
+
+sys.exit()

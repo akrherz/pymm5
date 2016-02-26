@@ -1,0 +1,40 @@
+
+NOTES ON HOW TO INSTALL MM5 I/O PYTHON INTERFACE (pymm5)
+
+This package contains just ascii script files, so no compilation is
+needed (a python compilation is performed, but in the python sense).
+
+Lots of packages are pre-requisite to this:
+
+ 1) NetCDF Library ( http://unidata.ucar.edu/packages/netcdf )
+     Version > 3.4, Tested on 3.4 (Most recent, on November 2000 3.5 avail.)
+ 2) Udunits Library ( http://www.unidata.ucar.edu/packages/udunits )
+     Version > 1.11.7, Tested on 1.11.7 (Most recent)
+
+ 3) Python ( http://www.python.org )
+     Version > 1.52, Tested on 1.52 (Actually most recent is 2.0)
+ 4) Python netcdf interface ( http://snow.cit.cornell.edu/noon/ncmodule.html )
+     Version dated 8/21/97, Tested on 8/21/97 (Most recent)
+ 5) Numerical Python ( http://sourceforge.net/projects/numpy )
+     Version > 17.0, Tested on 17.0 (Most recent, see bugs for COMPAQ/OSF)
+ 6) Python Imaging Library ( http://www.pythonware.com )
+     Version > 1.1, Tested on 1.1 (Actually most recent is 1.1.1)
+
+I will assume that You have successfully installed all this. (It will take
+a two or three day of work to do this. I will not give any hints except to
+follow install notes on each package, and install them in the order I
+suggest).
+
+Ok, You have managed to arrive to this point.
+
+Having all this work done, You would like now to use this software.
+
+The installation procedure is very easy.
+
+      Launch (as root if needed) the install.py program.
+
+   I.E.: python install.py
+
+And answer the questions.
+
+Good Luck. Graziano

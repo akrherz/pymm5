@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+
+##############################################################
+#################  University of L'Aquila    #################
+#################       PST ABruzzo          #################
+################# MM5 python interface V 0.1 #################
+##############################################################
+
+import sys
+import string
+import mm5_class
+import wgrads
+import wascii
+import wgif
+import wnetcdf
+
+def print_help(prgname):
+  print "Error. Usage:"
+  print "             ", prgname, " format filename variable timestep"
+  print " "
+  print "Notes:"
+  print "       First timestep is 0."
+  print "       Format can be: "
+  print "                      grads"
+  print "                      netcdf (lat-lon projected)"
+  print "                      ascii"
+  print "                      gif"
+  print " "
+  sys.exit()
+
+if (len(sys.argv) < 4):
+  print_help(sys.argv[0])
+
+if (sys.argv[1] == 'grads'):
+  outfunc = wgrads.write
+if (sys.argv[1] == 'netcdf'):
+  outfunc = wnetcdf.write
+elif (sys.argv[1] == 'ascii'):
+  outfunc = wascii.write
+elif (sys.argv[1] == 'gif'):
+  outfunc = wgif.write
+else:
+  print_help(sys.argv[0])
+
+try:
+  input = mm5_class.mm5(sys.argv[2])
+except RuntimeError, e:
+  print e
+  sys.exit()
+
+timestep = string.atoi(sys.argv[4])
+
+result = outfunc(sys.argv[3], input, timestep)
+if (result == -1):
+  print "Output routine failed"
+  sys.exit()
+
+del input
+
+sys.exit()

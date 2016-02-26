@@ -1,0 +1,56 @@
+##############################################################
+################# MM5 python interface V 0.1 #################
+##############################################################
+
+                             pymm5
+
+This is some work done here in Italy at University of L'Aquila
+and at PST Abruzzo on MM5 I/O format. It mainly consist of the
+file mm5_class, mm5_proj and mm5_table which are in the lib/MM5
+directory. This files contain python interfaces to manage MM5
+I/O format. This allows for writing a program like mm5_export,
+which is able to export MM5 variables from MM5 I/O format (v2
+or v3) to NetCDF, Grads, ascii or gif format. This software is
+still under development (as fas as I will be able to work on it).
+Not everything works fine, I do not have much time to test it
+on all possible formats. It just works for us.
+
+Do as You like with it, ask me if You need help.
+
+                            Graziano.
+
+##############################################################
+
+Requirements:
+
+ 1) NetCDF Library ( http://unidata.ucar.edu/packages/netcdf )
+     Version > 3.4, Tested on 3.4 (Most recent, on November 2000 3.5 avail.)
+ 2) Udunits Library ( http://www.unidata.ucar.edu/packages/udunits )
+     Version > 1.11.7, Tested on 1.11.7 (Most recent)
+
+ 3) Python ( http://www.python.org )
+     Version > 1.52, Tested on 1.52 (Actually most recent is 2.0)
+ 4) Python netcdf interface ( http://snow.cit.cornell.edu/noon/ncmodule.html )
+     Version dated 8/21/97, Tested on 8/21/97 (Most recent)
+ 5) Numerical Python ( http://sourceforge.net/projects/numpy )
+     Version > 17.0, Tested on 17.0 (Most recent, see bugs for COMPAQ/OSF)
+ 6) Python Imaging Library ( http://www.pythonware.com )
+     Version > 1.1, Tested on 1.1 (Actually most recent is 1.1.1)
+
+##############################################################
+
+See INSTALL file for notes on how to install this.
+
+Good luck,
+
+             Graziano.
+
+                             \ | /
+                             (@ @)
+ -------------------------o00-(_)-00o -----------------------------
+ Graziano Giuliani
+ Parco Scientifico e Tecnologico d'Abruzzo
+ Via Antica Arischia, 1 - 67100 L'Aquila - Italy
+ Tel. +39 08623475309     Fax. +39 08623475210
+ mailto: graziano.giuliani@aquila.infn.it
+         graziano.giuliani@pstabruzzo.it
