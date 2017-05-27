@@ -12,7 +12,7 @@ from os import stat
 from time import mktime, localtime
 from struct import pack, unpack, calcsize
 from string import strip, rstrip, lower, replace
-from Numeric import ravel, shape, resize, array, reshape, transpose, take
+from numpy import ravel, shape, resize, array, reshape, transpose, take
 import mm5_table
 
 
@@ -527,6 +527,7 @@ class mm5:
         # Extract field information from subheader
 
         fname = replace(lower(rstrip(subh[13])), " ", "_")
+        fdate = subh[12]
         fdesc = lower(rstrip(subh[15]))
         funit = rstrip(subh[14])
         fdims = subh[0]
@@ -543,6 +544,7 @@ class mm5:
                               'coupled'     : fcoupl,
                               'cross'       : fcross,
                               'position'    : fpos,
+                              'time'        : fdate,
                               'size'        : fsize,
                               'ndims'       : fdims,
                               'start'       : fstarti,
@@ -691,11 +693,11 @@ class mm5:
             levs.append(pval)
           lvf['values'] = levs
       elif (self.version == 3):
-        name = 'pressure'
-        xlvf = self.get_field('pressure', 0)
+        name = 'sigma'
+        xlvf = self.get_field('sigmah', 0)
         if (xlvf == -1):
-          name = 'sigma'
-          xlvf = self.get_field('sigmah', 0)
+          name = 'pressure'
+          xlvf = self.get_field('pressure', 0)
         lvf = {  'name'        : name,
                  'description' : xlvf['description'],
                  'unit'        : xlvf['units'],
@@ -819,7 +821,6 @@ class mm5:
     try:
       finfo = self.fields[fname]
     except Exception:
-      print fname, ": No such field"
       return -1
 
     if (timestep < 0):
